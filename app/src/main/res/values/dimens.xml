@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standardMargin">16dp</dimen>
+    <dimen name="buttonTextSize">16sp</dimen>
+    <dimen name="headingTextSize">20sp</dimen>
+    <dimen name="radioLeftPadding">24dp</dimen>
+    <dimen name="textLeftPadding">16dp</dimen>
+    <dimen name="textRighPadding">16dp</dimen>
+    <dimen name="halfStandard">8dp</dimen>
+    <dimen name="qrtrStandardMargin">4dp</dimen>
+    <dimen name="mainLayoutTopMargin">20dp</dimen>
+    <dimen name="questionTopMargin">80dp</dimen>
+    <dimen name="choicesLayoutTopMargin">130dp</dimen>
+    <dimen name="firstChkBxTopMargin">200dp</dimen>
+    <dimen name="secondChkBxTopMargin">250dp</dimen>
+    <dimen name="thirdChkBxTopMargin">300dp</dimen>
+    <dimen name="fourthChkBxTopMargin">350dp</dimen>
+    <dimen name="textInputTopMargin">400dp</dimen>
+    <dimen name="buttonLayoutTopMargin">460dp</dimen>
+</resources>

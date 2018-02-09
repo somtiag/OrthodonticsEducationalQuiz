@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Orthodontics Educational Quiz</string>
+    <string name="textFont">sans-serif-medium</string>
+    <string name="exitButton">EXIT</string>
+    <string name="finalAnswerButton">FINAL ANSWER</string>
+    <string name="nextButton">NEXT</string>
+    <string name="questionHeadingTxt">Your_Question</string>
+    <string name="currentScoreHeadingTxt">Current Score</string>
+    <string name="byeButtonView">BYE</string>
+</resources>
