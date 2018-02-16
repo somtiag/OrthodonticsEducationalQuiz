@@ -3,110 +3,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:fillViewport="true"
+    android:orientation="vertical"
     tools:context="com.example.android.orthodonticseducationalquiz.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorPrimaryLight">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/mainLayoutTopMargin"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/currentScoreLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/textLeftPadding"
-                android:paddingRight="@dimen/textRighPadding"
-                android:layout_marginTop="@dimen/halfStandard"
-                android:layout_marginBottom="@dimen/halfStandard"
-                android:layout_marginLeft="@dimen/standardMargin"
-                android:text="@string/currentScoreHeadingTxt"
-                android:textAllCaps="false"
-                android:textColor="@color/colorOfHeading"
-                android:background="@color/colorPrimaryDark"
-                android:fontFamily="@string/textFont"
-                android:textSize="@dimen/headingTextSize" />
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryLight"
+        android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/currentScore"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/halfStandard"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/currentScoreLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/halfStandard"
-                android:layout_marginBottom="@dimen/standardMargin"
-                android:layout_marginLeft="@dimen/standardMargin"
-                android:text="0"
-                android:textAllCaps="true"
-                android:fontFamily="@string/textFont"
-                android:textColor="@color/colorOfHeading"
-                android:textSize="@dimen/headingTextSize" />
+                android:layout_marginLeft="@dimen/halfStandard"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/currentScoreLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/halfStandard"
+                    android:layout_marginTop="@dimen/halfStandard"
+                    android:fontFamily="@string/textFont"
+                    android:paddingLeft="@dimen/textLeftPadding"
+                    android:paddingRight="@dimen/textRighPadding"
+                    android:text="@string/currentScoreHeadingTxt"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorOfHeading"
+                    android:textSize="@dimen/headingTextSize" />
+
+                <TextView
+                    android:id="@+id/currentScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/standardMargin"
+                    android:layout_marginLeft="@dimen/standardMargin"
+                    android:layout_marginTop="@dimen/halfStandard"
+                    android:fontFamily="@string/textFont"
+                    android:text="0"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorOfHeading"
+                    android:textSize="@dimen/headingTextSize" />
+            </LinearLayout>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/teeth" />
+                android:layout_width="@dimen/imgVuWidthPortrait"
+                android:layout_height="@dimen/imgVuHtPortrait"
+                android:layout_marginBottom="@dimen/qrtrStandardMargin"
+                android:layout_marginLeft="@dimen/imgLeftMargin"
+                android:layout_marginRight="@dimen/standardMargin"
+                android:src="@drawable/tinsel" />
 
         </LinearLayout>
+
         <LinearLayout
-            android:id = "@+id/questionNo_view"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
+            android:id="@+id/questionNo_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/halfStandard"
             android:layout_marginTop="@dimen/questionTopMargin"
-            android:orientation = "horizontal">
+            android:orientation="horizontal">
+
             <TextView
-                android:id ="@+id/querynumber_view"
+                android:id="@+id/querynumber_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/standardMargin"
                 android:layout_marginLeft="@dimen/standardMargin"
-                android:text ="0 "
-                android:textAllCaps="true"
                 android:fontFamily="@string/textFont"
+                android:text="0 "
+                android:textAllCaps="true"
                 android:textColor="@color/colorOfHeading"
                 android:textSize="@dimen/headingTextSize" />
 
             <TextView
-                android:id ="@+id/question_label_view"
+                android:id="@+id/question_label_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/standardMargin"
-                android:layout_marginLeft="@dimen/standardMargin"
-                android:text ="@string/questionHeadingTxt"
+                android:fontFamily="@string/textFont"
                 android:paddingLeft="@dimen/textLeftPadding"
                 android:paddingRight="@dimen/textLeftPadding"
+                android:text="@string/questionHeadingTxt"
                 android:textAllCaps="false"
-                android:background="@color/colorPrimaryDark"
-                android:fontFamily="@string/textFont"
                 android:textColor="@color/colorOfHeading"
                 android:textSize="@dimen/headingTextSize" />
 
-
-
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/questionAnswerLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/choicesLayoutTopMargin"
+            android:layout_height="280dp"
+            android:layout_below="@id/questionNo_view"
+            android:layout_marginTop="@dimen/qrtrStandardMargin"
+            android:background="@color/colorPrimary"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/query1_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/qrtrStandardMargin"
                 android:layout_marginBottom="@dimen/standardMargin"
                 android:layout_marginLeft="@dimen/standardMargin"
-                android:text = ""
-                android:textAllCaps="false"
+                android:layout_marginTop="@dimen/qrtrStandardMargin"
                 android:fontFamily="@string/textFont"
+                android:text=""
+                android:textAllCaps="false"
                 android:textColor="@color/colorOfHeading"
                 android:textSize="@dimen/headingTextSize" />
 
@@ -114,29 +123,30 @@
                 android:id="@+id/rgAnswerGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <RadioButton
-                android:id="@+id/answerChoice1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/standardMargin"
-                android:layout_marginLeft="@dimen/standardMargin"
-                android:onClick="askToConfirm"
-                android:paddingLeft="@dimen/radioLeftPadding"
-                android:fontFamily="@string/textFont"
-                android:textColor="@color/colorOfHeading"
-                android:textSize="@dimen/headingTextSize" />
 
-            <RadioButton
-                android:id="@+id/answerChoice2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/standardMargin"
-                android:layout_marginLeft="@dimen/standardMargin"
-                android:onClick="askToConfirm"
-                android:paddingLeft="@dimen/radioLeftPadding"
-                android:fontFamily="@string/textFont"
-                android:textColor="@color/colorOfHeading"
-                android:textSize="@dimen/headingTextSize" />
+                <RadioButton
+                    android:id="@+id/answerChoice1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/standardMargin"
+                    android:layout_marginLeft="@dimen/standardMargin"
+                    android:fontFamily="@string/textFont"
+                    android:onClick="askToConfirm"
+                    android:paddingLeft="@dimen/radioLeftPadding"
+                    android:textColor="@color/colorOfHeading"
+                    android:textSize="@dimen/headingTextSize" />
+
+                <RadioButton
+                    android:id="@+id/answerChoice2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/standardMargin"
+                    android:layout_marginLeft="@dimen/standardMargin"
+                    android:fontFamily="@string/textFont"
+                    android:onClick="askToConfirm"
+                    android:paddingLeft="@dimen/radioLeftPadding"
+                    android:textColor="@color/colorOfHeading"
+                    android:textSize="@dimen/headingTextSize" />
 
                 <RadioButton
                     android:id="@+id/answerChoice3"
@@ -144,155 +154,165 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/standardMargin"
                     android:layout_marginLeft="@dimen/standardMargin"
+                    android:fontFamily="@string/textFont"
                     android:onClick="askToConfirm"
                     android:paddingLeft="@dimen/radioLeftPadding"
-                    android:fontFamily="@string/textFont"
                     android:textColor="@color/colorOfHeading"
                     android:textSize="@dimen/headingTextSize" />
+
                 <RadioButton
                     android:id="@+id/answerChoice4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/standardMargin"
                     android:layout_marginLeft="@dimen/standardMargin"
+                    android:fontFamily="@string/textFont"
                     android:onClick="askToConfirm"
                     android:paddingLeft="@dimen/radioLeftPadding"
-                    android:fontFamily="@string/textFont"
                     android:textColor="@color/colorOfHeading"
                     android:textSize="@dimen/headingTextSize" />
             </RadioGroup>
-
         </LinearLayout>
 
         <CheckBox
-                android:id = "@+id/chkChoice1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/firstChkBxTopMargin"
-                android:layout_marginLeft="@dimen/standardMargin"
-                android:fontFamily="@string/textFont"
-                android:textSize="@dimen/headingTextSize"
-                android:textColor="@color/colorOftexticon"
-                android:onClick="setChkChoice1Status"/>
-        <CheckBox
-                android:id = "@+id/chkChoice2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/secondChkBxTopMargin"
-                android:layout_marginLeft="@dimen/standardMargin"
-                android:fontFamily="@string/textFont"
-                android:textSize="@dimen/headingTextSize"
-                android:textColor="@color/colorOftexticon"
-                android:onClick="setChkChoice2Status"/>
-        <CheckBox
-                android:id = "@+id/chkChoice3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/thirdChkBxTopMargin"
-                android:layout_marginLeft="@dimen/standardMargin"
-                android:textSize="@dimen/headingTextSize"
-                android:fontFamily="@string/textFont"
-                android:textColor="@color/colorOftexticon"
-                android:onClick="setChkChoice3Status"/>
-        <CheckBox
-                android:id = "@+id/chkChoice4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/fourthChkBxTopMargin"
-                android:fontFamily="@string/textFont"
-                android:layout_marginLeft="@dimen/standardMargin"
-                android:textSize="@dimen/headingTextSize"
-                android:textColor="@color/colorOftexticon"
-                android:onClick="setChkChoice4Status"/>
-        <Button
-            android:id="@+id/byeButtonView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="360dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginBottom="@dimen/standardMargin"
-            android:background="@color/colorPrimaryDark"
-            android:onClick="closeQuiz"
-            android:text="@string/byeButtonView"
-            android:textAllCaps="true"
-            android:fontFamily="@string/textFont"
-            android:textColor="@color/colorOftexticon"
-            android:textSize="@dimen/buttonTextSize" />
-
-        <LinearLayout
-            android:id = "@+id/editWordLayout"
-            android:layout_width = "match_parent"
-            android:layout_height = "wrap_content"
-            android:layout_marginTop="@dimen/textInputTopMargin"
-            android:orientation = "horizontal">
-
-        <EditText
-            android:id="@+id/scrambleWord_View"
+            android:id="@+id/chkChoice1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/qrtrStandardMargin"
             android:layout_marginLeft="@dimen/standardMargin"
-            android:hint="Type Word"
-            android:clickable="true"
-            android:focusable="true"
-            android:inputType = "text"
-            android:imeOptions="actionDone"
-            android:maxLines="1"
-            android:textColor="@color/colorOftexticon"
+            android:layout_marginTop="@dimen/firstChkBxTopMarginPortrait"
             android:fontFamily="@string/textFont"
-            android:textSize="@dimen/headingTextSize"/>
+            android:onClick="setChkChoice1Status"
+            android:textColor="@color/colorOftexticon"
+            android:textSize="@dimen/headingTextSize" />
 
-        </LinearLayout>
-        <LinearLayout
+        <CheckBox
+            android:id="@+id/chkChoice2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/buttonLayoutTopMargin">
-        <Button
-            android:id="@+id/exitButtonView"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/standardMargin"
+            android:layout_marginTop="@dimen/secondChkBxTopMarginPortrait"
+            android:fontFamily="@string/textFont"
+            android:onClick="setChkChoice2Status"
+            android:textColor="@color/colorOftexticon"
+            android:textSize="@dimen/headingTextSize" />
+
+        <CheckBox
+            android:id="@+id/chkChoice3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/standardMargin"
-            android:layout_marginBottom="@dimen/standardMargin"
-            android:background="@color/colorPrimaryDark"
-            android:onClick="closeQuiz"
-            android:text="@string/exitButton"
-            android:textAllCaps="true"
+            android:layout_marginTop="@dimen/thirdChkBxTopMarginPortrait"
             android:fontFamily="@string/textFont"
+            android:onClick="setChkChoice3Status"
             android:textColor="@color/colorOftexticon"
-            android:textSize="@dimen/buttonTextSize" />
+            android:textSize="@dimen/headingTextSize" />
+
+        <CheckBox
+            android:id="@+id/chkChoice4"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/standardMargin"
+            android:layout_marginTop="@dimen/fourthChkBxTopMarginPortrait"
+            android:fontFamily="@string/textFont"
+            android:onClick="setChkChoice4Status"
+            android:textColor="@color/colorOftexticon"
+            android:textSize="@dimen/headingTextSize" />
 
         <Button
-            android:id="@+id/finalAnswerButtonView"
+            android:id="@+id/contactUsButtonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/standardMargin"
+            android:layout_below="@id/editWordLayout"
             android:layout_marginBottom="@dimen/standardMargin"
-            android:background="@color/colorPrimaryDark"
-            android:onClick="confirmAnswer"
-            android:text="@string/finalAnswerButton"
+            android:layout_marginLeft="140dp"
+            android:layout_marginRight="@dimen/standardMargin"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@string/textFont"
+            android:onClick="contactUs"
             android:paddingLeft="@dimen/halfStandard"
             android:paddingRight="@dimen/halfStandard"
+            android:text="@string/contactUsButtonView"
             android:textAllCaps="true"
-            android:fontFamily="@string/textFont"
-            android:textColor="@color/colorOftexticon"
+            android:textColor="@color/colorPrimaryLight"
             android:textSize="@dimen/buttonTextSize" />
 
-        <Button
-            android:id="@+id/nextButtonView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/editWordLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/standardMargin"
-            android:layout_marginRight="@dimen/standardMargin"
-            android:layout_marginBottom="@dimen/standardMargin"
-            android:background="@color/colorPrimaryDark"
-            android:onClick="moveToNext"
-            android:text="@string/nextButton"
-            android:textAllCaps="true"
-            android:fontFamily="@string/textFont"
-            android:textColor="@color/colorOftexticon"
-            android:textSize="@dimen/buttonTextSize" />
+            android:layout_below="@id/questionAnswerLayout"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/scrambleWord_View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/qrtrStandardMargin"
+                android:layout_marginLeft="@dimen/standardMargin"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@string/textFont"
+                android:hint="@string/editWordHint"
+                android:imeOptions="actionDone"
+                android:inputType="textAutoCorrect"
+                android:maxLines="1"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/headingTextSize" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editWordLayout"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/exitButtonView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/standardMargin"
+                android:layout_marginLeft="@dimen/standardMargin"
+                android:layout_marginRight="@dimen/halfStandard"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@string/textFont"
+                android:onClick="closeQuiz"
+                android:text="@string/exitButton"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="@dimen/buttonTextSize" />
+
+            <Button
+                android:id="@+id/finalAnswerButtonView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/standardMargin"
+                android:layout_marginLeft="@dimen/halfStandard"
+                android:layout_marginRight="@dimen/halfStandard"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@string/textFont"
+                android:onClick="confirmAnswer"
+                android:paddingLeft="@dimen/halfStandard"
+                android:paddingRight="@dimen/halfStandard"
+                android:text="@string/finalAnswerButton"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="@dimen/buttonTextSize" />
+
+            <Button
+                android:id="@+id/nextButtonView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/standardMargin"
+                android:layout_marginLeft="@dimen/halfStandard"
+                android:layout_marginRight="@dimen/standardMargin"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@string/textFont"
+                android:onClick="moveToNext"
+                android:text="@string/nextButton"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="@dimen/buttonTextSize" />
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

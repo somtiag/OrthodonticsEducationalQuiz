@@ -1,6 +1,9 @@
 package com.example.android.orthodonticseducationalquiz;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +29,7 @@ import java.util.Set;
 
 
 public class MainActivity extends AppCompatActivity {
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     TextView qNo;
     TextView q1Vu;
     RadioButton rB1, rB2, rB3, rB4;
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     EditText sWd;
     LinearLayout qALayout;
     CheckBox chkCh1, chkCh2, chkCh3, chkCh4;
-    Button fA, nXT, eXT,bYE;
+    Button fA, nXT, eXT,cntUs;
 
 
     ArrayList<String> question;
@@ -84,25 +88,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-    qNo = (TextView) findViewById(R.id.querynumber_view);
-    q1Vu =(TextView) findViewById(R.id.query1_text_view);
-    rB1 = (RadioButton)findViewById(R.id.answerChoice1);
-    rB2 = (RadioButton)findViewById(R.id.answerChoice2);
-    rB3 = (RadioButton)findViewById(R.id.answerChoice3);
-    rB4 = (RadioButton)findViewById(R.id.answerChoice4);
-    cS = (TextView) findViewById(R.id.currentScore);
-    cSL = (TextView) findViewById(R.id.currentScoreLabel);
-    rG =(RadioGroup) findViewById(R.id.rgAnswerGroup);
-    qALayout =(LinearLayout) findViewById(R.id.questionAnswerLayout);
-    sWd =(EditText) findViewById(R.id.scrambleWord_View);
-    chkCh1 =(CheckBox) findViewById(R.id.chkChoice1);
-    chkCh2 =(CheckBox) findViewById(R.id.chkChoice2);
-    chkCh3 =(CheckBox) findViewById(R.id.chkChoice3);
-    chkCh4 =(CheckBox) findViewById(R.id.chkChoice4);
-    bYE = (Button) (findViewById(R.id.byeButtonView));
-    fA = (Button) findViewById(R.id.finalAnswerButtonView);
-    nXT = (Button) findViewById(R.id.nextButtonView);
-    eXT = (Button) findViewById(R.id.exitButtonView);
+    qNo =  findViewById(R.id.querynumber_view);
+    q1Vu = findViewById(R.id.query1_text_view);
+    rB1 = findViewById(R.id.answerChoice1);
+    rB2 = findViewById(R.id.answerChoice2);
+    rB3 = findViewById(R.id.answerChoice3);
+    rB4 = findViewById(R.id.answerChoice4);
+    cS =  findViewById(R.id.currentScore);
+    cSL =  findViewById(R.id.currentScoreLabel);
+    rG = findViewById(R.id.rgAnswerGroup);
+    qALayout = findViewById(R.id.questionAnswerLayout);
+    sWd = findViewById(R.id.scrambleWord_View);
+    chkCh1 = findViewById(R.id.chkChoice1);
+    chkCh2 = findViewById(R.id.chkChoice2);
+    chkCh3 = findViewById(R.id.chkChoice3);
+    chkCh4 = findViewById(R.id.chkChoice4);
+    cntUs =  (findViewById(R.id.contactUsButtonView));
+    fA =  findViewById(R.id.finalAnswerButtonView);
+    nXT =  findViewById(R.id.nextButtonView);
+    eXT =  findViewById(R.id.exitButtonView);
 
         if (savedInstanceState != null) {
             currentQuestion = savedInstanceState.getInt("currentQuestionState",0);
@@ -189,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Call setValues method to setup the screen for the first question and thereafter
      **/
-    bYE.setVisibility(View.INVISIBLE);
+   cntUs.setVisibility(View.INVISIBLE);
     setValues(currentQuestion);
 
     /**Setup actionlistener for the scrambleWord question's EditText View**/
@@ -199,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onEditorAction (TextView v,int actionId, KeyEvent event){
             String input;
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                input = v.getText().toString();
+                input = v.getText().toString().trim();
                 checkScrambleAnswer(input);
                 hideKeyboard(sWd);
                 return true;
@@ -226,8 +230,23 @@ public class MainActivity extends AppCompatActivity {
      **/
     private void hideKeyboard(EditText editText) {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+       try{
+           imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+       }catch(NullPointerException e){
+           System.out.println("Exception from hideSoftInputFromWindow()");
+        }catch (Exception e)
+       {
+           System.out.println("Unresolved Exception when hiding keyboard");
+       }
     }
+
+    /** Start a new activity by clicking contactUs button and showing the next screen with contact information**/
+    public void contactUs(View view){
+        Intent intent = new Intent(getApplicationContext(),ContactUsActivity.class);
+        startActivity(intent);
+
+    }
+
 
     /**
      * Set initial choices for radio buttons for questions 1-4.  Set initial scramble word for question 5.
@@ -500,19 +519,34 @@ public class MainActivity extends AppCompatActivity {
         nXT.setVisibility(View.INVISIBLE);
         cS.setVisibility(View.INVISIBLE);
         cSL.setVisibility(View.INVISIBLE);
-        eXT.setVisibility(View.INVISIBLE);
+        eXT.setVisibility(View.VISIBLE);
+        cntUs.setVisibility(View.VISIBLE);
 
-        bYE.setVisibility(View.VISIBLE);
+      //  bYE.setVisibility(View.VISIBLE);
         TextView TV = (TextView) (findViewById(R.id.question_label_view));
         TV.setVisibility(View.INVISIBLE);
         String message = "CONGRATULATIONS !" + "\n" + "\n"
                 + "You completed the quiz.  " +
                 "\n" + "\n" + "We wish you a healthy set of teeth" +
-                "\n" + "and a great smile. " +
-                "\n" + "\n" + "Bye !";
+                "\n" + "and a great smile." + "\n" + "\n" +
+                "Hosted by - tinselTeeth, San Diego, California.";
         q1Vu.setText(message);
 
 
+    }
+
+    public void scheduleAppointment(){
+
+        String mailto = "mailto:somtiag@gmail.com" + "&subject=" + Uri.encode("Schedule appointment")
+                + "body=" + Uri.encode("I'd like an appointment with Dr Grant. Call me at (---)-------");
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse(mailto));
+
+        try{
+            startActivity(emailIntent);
+        }catch(ActivityNotFoundException e){
+            //TODO: Handle case where no email app is available
+        }
     }
 
     /**
